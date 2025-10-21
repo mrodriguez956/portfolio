@@ -111,6 +111,8 @@ h2 {
     height: 100%;
 }
 
-br {
-    background-color: red;
+.page-line {
+    border-top: 5px double transparent;
+    border-image: linear-gradient(75deg, #ff2bae, #872bff) 2;
+    border-image-slice: 1;
 }
