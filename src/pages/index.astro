@@ -4,15 +4,17 @@ import Welcome from "../components/Welcome.astro";
 import Projects from "../components/Projects.astro";
 import Display from "../components/Display.astro";
 import Skills from "../components/Skills.astro";
+import About from "../components/About.astro";
 ---
 
 <Layout>
     <Welcome />
     <div class="page-line"></div>
+
+    <Skills />
+
     <div class="showcase grid grid-cols-4">
         <Projects />
         <Display />
     </div>
-
-    <Skills />
 </Layout>

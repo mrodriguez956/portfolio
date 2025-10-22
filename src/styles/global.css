@@ -72,6 +72,10 @@ h2 {
     font-family: "OptiStevas";
 }
 
+.hero-container {
+    height: 25vw;
+}
+
 .vhs-stack {
     display: flex;
     flex-direction: column;
