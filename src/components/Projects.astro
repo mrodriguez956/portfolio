@@ -1,0 +1,51 @@
+---
+import dbdVHS from "../assets/VHS-DBD.png";
+
+const identity = {
+    firstName: "Michael",
+    country: "Texas",
+    occupation: "Help Desk Support Technician",
+    education:
+        "Bachelor's Degree in Computer Science (University of Texas at San Antonio)",
+    hobbies: ["Gaming", "Web Dev", "card collecting"],
+    food: ["Sandwiches"],
+    favoriteWorks: ["Donnie Darko", "Late Night with the Devil", "Mr. Robot"],
+};
+
+const projects = [
+    {
+        title: "Dead by Daylight 90's Generator",
+        description: "Custom Icon Generator for Dead by Daylight",
+        image: dbdVHS,
+    },
+    {
+        title: "Wordpress Shop Theme",
+        description: "Custom Wordpress Theme inspired by Shirtz.cool",
+        image: dbdVHS,
+    },
+    {
+        title: "Another Project",
+        description: "Another cool project",
+        image: dbdVHS,
+    },
+];
+
+const skillColor = "white";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+<div class="vhs-stack col-span-1 text-center">
+    {
+        projects.map(
+            (project) =>
+                project.image && (
+                    <img
+                        class="tape"
+                        src={project.image.src}
+                        alt={project.title}
+                    />
+                ),
+        )
+    }
+</div>

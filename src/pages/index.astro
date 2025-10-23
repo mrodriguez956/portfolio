@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Welcome from "../components/Welcome.astro";
+import Projects from "../components/Projects.astro";
+import Display from "../components/Display.astro";
+import Skills from "../components/Skills.astro";
+import About from "../components/About.astro";
+import projectImage from "../assets/Projects.svg";
+---
+
+<Layout>
+    <Welcome />
+    <h2 class="section-header text-center text-[40px] flex justify-center">
+        <img
+            class="rounded-lg shadow-2xl w-[400px]"
+            src={projectImage.src}
+            alt="Abstract background"
+        />
+    </h2>
+    <div class="showcase grid grid-cols-4">
+        <Projects />
+        <Display />
+    </div>
+    <About />
+    <Skills />
+</Layout>

@@ -1,0 +1,44 @@
+---
+import astroLogo from "../assets/astro.svg";
+import background from "../assets/background.svg";
+import tape from "../assets/tape.png";
+---
+
+<div class="hero-container content-center grid grid-cols-4 px-5 text-white">
+    <!--
+    This wrapper is the key.
+    - `relative`: Makes this the positioning context for its children.
+  -->
+
+    <div class="hero-name col-span-2 p-4 rounded-md">
+        <span class="text-[20px] font-bold text-wheat">
+            from the console of Michael Rodriguez</span
+        >
+        <h1 class="text-[120px] leading-none">Full-Stack Engineer</h1>
+        <div class="py-2 text-[20px]">
+            Creating unforgettable experiences in the digital realm. You won't
+            look away.
+        </div>
+        <a class=""> About Me ^ </a>
+    </div>
+    <div class="col-span-2">
+        <!-- 1. The Image -->
+        <img
+            class="rounded-lg shadow-2xl"
+            src={tape.src}
+            alt="Abstract background"
+        />
+
+        <!-- 2. The Overlapping Name -->
+        <!--
+          - `absolute`: Positions this div relative to the parent above.
+          - `-bottom-5 -right-5`: The negative values push the div *outside*
+            the parent's boundaries at the bottom-right corner.
+        -->
+    </div>
+</div>
+
+<!-- You can add your description content here later -->
+<div id="hero-description"></div>
+
+<br class="line" />

@@ -1,0 +1,79 @@
+---
+import skillsImage from "../assets/Skills.svg";
+const identity = {
+    firstName: "Michael",
+    country: "Texas",
+    occupation: "Help Desk Support Technician",
+    education:
+        "Bachelor's Degree in Computer Science (University of Texas at San Antonio)",
+    hobbies: ["Gaming", "Web Dev", "card collecting"],
+    food: ["Sandwiches"],
+    favoriteWorks: ["Donnie Darko", "Late Night with the Devil", "Mr. Robot"],
+};
+
+const skills = [
+    {
+        skill: "HTML",
+        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+    },
+    {
+        skill: "CSS",
+        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+    },
+    {
+        skill: "JavaScript",
+        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    },
+    {
+        skill: "React",
+        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    },
+    {
+        skill: "Astro",
+        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg",
+    },
+    {
+        skill: "Writing Docs",
+        image: null,
+    },
+    {
+        skill: "Technical Support",
+        image: null,
+    },
+    {
+        skill: "Graphic Design",
+        image: null,
+    },
+    {
+        skill: "UI/UX",
+        image: null,
+    },
+];
+
+const skillColor = "white";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+<h2 class="section-header text-center text-[40px] flex justify-center">
+    <img
+        class="rounded-lg shadow-2xl w-[400px]"
+        src={skillsImage.src}
+        alt="Abstract background"
+    />
+</h2>
+<div class="skills text-center grid grid-cols-2 md:grid-cols-5 gap-8 p-8">
+    {
+        skills.map((skill) => (
+            <div class="skill flex flex-col items-center justify-center">
+                {skill.image && (
+                    <img
+                        class="w-25 h-25 mb-2"
+                        src={skill.image}
+                        alt={skill.skill}
+                    />
+                )}
+            </div>
+        ))
+    }
+</div>
