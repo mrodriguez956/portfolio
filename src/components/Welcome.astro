@@ -1,44 +1,26 @@
 ---
-import astroLogo from "../assets/astro.svg";
-import background from "../assets/background.svg";
 import tape from "../assets/tape.png";
 ---
 
-<div class="hero-container content-center grid grid-cols-4 px-5 text-white">
-    <!--
-    This wrapper is the key.
-    - `relative`: Makes this the positioning context for its children.
-  -->
-
-    <div class="hero-name col-span-2 p-4 rounded-md">
-        <span class="text-[20px] font-bold text-wheat">
-            from the console of Michael Rodriguez</span
-        >
-        <h1 class="text-[120px] leading-none">Full-Stack Engineer</h1>
-        <div class="py-2 text-[20px]">
-            Creating unforgettable experiences in the digital realm. You won't
-            look away.
+<div class="hero-container grid grid-cols-5 text-white p-10">
+    <div class="hero-name col-span-3">
+        <span class="text-4xl font-bold text-wheat">
+            from the console of Michael Rodriguez
+        </span>
+        <h1 class="text-[110px] leading-none">Full-Stack<br />Engineer</h1>
+        <div class="py-2 text-3xl">
+            Creating analog experiences in the digital realm.
         </div>
-        <a class=""> About Me ^ </a>
+        <a href="#about" class="hover:underline"> About Me &#8595; </a>
     </div>
-    <div class="col-span-2">
-        <!-- 1. The Image -->
+    <div class="col-span-2 tape-container">
         <img
-            class="rounded-lg shadow-2xl"
+            class="tape-img"
             src={tape.src}
-            alt="Abstract background"
+            alt="A VHS tape with a custom label"
         />
-
-        <!-- 2. The Overlapping Name -->
-        <!--
-          - `absolute`: Positions this div relative to the parent above.
-          - `-bottom-5 -right-5`: The negative values push the div *outside*
-            the parent's boundaries at the bottom-right corner.
-        -->
     </div>
 </div>
 
-<!-- You can add your description content here later -->
 <div id="hero-description"></div>
-
 <br class="line" />

@@ -6,8 +6,8 @@
 }
 
 :root {
-    --background-color: #000000;
-    --primary-color: #111111;
+    --background-color: #0A0A0A;
+    --primary-color: #101010;
     --secondary-color: #222222;
     --text-color: #e0e0e0;
     --highlight-color: #61afef;
@@ -22,6 +22,10 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: sans-serif;
+}
+
+main {
+    background-color: var(--primary-color);
 }
 
 .tape {
@@ -72,6 +76,7 @@ h2 {
 
 .hero-container {
     height: 25vw;
+    align-items: center;
 }
 
 .vhs-stack {
