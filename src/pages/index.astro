@@ -9,7 +9,9 @@ import projectImage from "../assets/Projects.svg";
 ---
 
 <Layout>
-    <Welcome />
+    <section class="content-section section-under">
+        <Welcome />
+    </section>
     <h2 class="section-header text-center text-[40px] flex justify-center">
         <img
             class="rounded-lg shadow-2xl w-[400px]"
@@ -17,10 +19,16 @@ import projectImage from "../assets/Projects.svg";
             alt="Abstract background"
         />
     </h2>
-    <div class="showcase grid grid-cols-4">
-        <Projects />
-        <Display />
-    </div>
-    <About />
-    <Skills />
+    <section class="content-section section-over">
+        <div class="showcase grid grid-cols-4">
+            <Projects />
+            <Display />
+        </div>
+    </section>
+    <section class="content-section section-under">
+        <About />
+    </section>
+    <section class="content-section section-over">
+        <Skills />
+    </section>
 </Layout>

@@ -123,3 +123,33 @@ h2 {
     border-image: linear-gradient(75deg, #ff2bae, #872bff) 2;
     border-image-slice: 1;
 }
+
+.weaving-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px; /* Made thicker */
+    background: linear-gradient(to bottom, #00FFFF, #FF00FF, #872bff);
+    z-index: 10; /* Middle z-index */
+    filter: drop-shadow(2px 0 5px rgba(0,0,0,0.5));
+}
+
+.content-section {
+    position: relative;
+    background-color: var(--primary-color);
+    margin-bottom: 5rem; /* Creates the gap to see the line */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+/* Places the section BEHIND the line */
+.section-over {
+    z-index: 5;
+}
+
+/* Places the section IN FRONT of the line */
+.section-under {
+    z-index: 15;
+}
