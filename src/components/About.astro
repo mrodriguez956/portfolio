@@ -5,21 +5,13 @@ import aboutSide from "../assets/about-image.jpg";
 
 <section>
     <h2 class="section-header text-center text-[40px] flex justify-center">
-        <img
-            class="rounded-lg shadow-2xl w-[400px]"
-            src={aboutImage.src}
-            alt="Abstract background"
-        />
+        <img class="w-[400px]" src={aboutImage.src} alt="Abstract background" />
     </h2>
-    <div class="about-me grid grid-cols-2">
+    <div class="content-section about-me grid md:grid-cols-2">
         <div class="flex justify-center">
-            <img
-                class="rounded-lg shadow-2xl w-[250px]"
-                src={aboutSide.src}
-                alt="Abstract background"
-            />
+            <img class="w-full" src={aboutSide.src} alt="Abstract background" />
         </div>
-        <p class="m-auto text-left">
+        <p class="text-[18px] md:text-[20px] content-center md:text-left">
             Fusing the nostalgic energy of the 90s with the power of modern web
             technologies, my work resurrects the creative spirit of the early
             internet to deliver cutting-edge, memorable experiences. My passion

@@ -6,7 +6,7 @@
 }
 
 :root {
-    --background-color: #0A0A0A;
+    --background-color: #0a0a0a;
     --primary-color: #101010;
     --secondary-color: #222222;
     --text-color: #e0e0e0;
@@ -25,7 +25,6 @@ body {
 }
 
 main {
-    background-color: var(--primary-color);
 }
 
 .tape {
@@ -38,11 +37,8 @@ main {
 
 .display-container,
 .vhs-stack {
-    background-color: #1e1e1e;
-    padding: 20px;
-    margin: 20px;
+    background-color: var(--primary-color);
     border-radius: 5px;
-    border: 1px solid #333;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -85,6 +81,14 @@ h2 {
     align-items: center;
     padding-top: 1.5rem;
 }
+
+.vhs-stack .mobile-view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 1.5rem;
+    rotate: 90deg;
+}
 .tape {
     display: block;
     width: 100%;
@@ -118,38 +122,13 @@ h2 {
     height: 100%;
 }
 
-.page-line {
-    border-top: 5px double transparent;
-    border-image: linear-gradient(75deg, #ff2bae, #872bff) 2;
-    border-image-slice: 1;
-}
-
-.weaving-line {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px; /* Made thicker */
-    background: linear-gradient(to bottom, #00FFFF, #FF00FF, #872bff);
-    z-index: 10; /* Middle z-index */
-    filter: drop-shadow(2px 0 5px rgba(0,0,0,0.5));
-}
-
 .content-section {
     position: relative;
     background-color: var(--primary-color);
-    margin-bottom: 5rem; /* Creates the gap to see the line */
-    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 10px 25px var(--shadow-color);
 }
 
-/* Places the section BEHIND the line */
-.section-over {
-    z-index: 5;
-}
-
-/* Places the section IN FRONT of the line */
-.section-under {
-    z-index: 15;
+h2 {
+    margin: 2rem; /* Creates the gap to see the line */
 }

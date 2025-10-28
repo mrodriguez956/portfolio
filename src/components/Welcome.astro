@@ -2,18 +2,21 @@
 import tape from "../assets/tape2.png";
 ---
 
-<div class="hero-container grid grid-cols-5 text-white p-10">
-    <div class="hero-name col-span-3">
-        <span class="text-4xl font-bold text-wheat">
+<div
+    class="grid grid-cols-1 md:grid-cols-5 text-white p-5 md:p-10 items-center"
+>
+    <div class="hero-name md:col-span-3">
+        <span class="lg:text-2xl font-bold text-wheat">
             from the console of Michael Rodriguez
         </span>
-        <h1 class="text-[110px] leading-none">Full-Stack<br />Engineer</h1>
-        <div class="py-2 text-3xl">
+        <h1 class="text-[55px] xl:text-[110px] leading-none">
+            Full-Stack Engineer
+        </h1>
+        <div class="py-2 lg:text-3xl">
             Creating analog experiences in the digital realm.
         </div>
-        <a href="#about" class="hover:underline"> About Me &#8595; </a>
     </div>
-    <div class="col-span-2 tape-container">
+    <div class="md:col-span-2 tape-container">
         <img
             class="tape-img"
             src={tape.src}

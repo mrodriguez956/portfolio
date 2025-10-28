@@ -56,19 +56,17 @@ const textCase = "uppercase";
 ---
 
 <h2 class="section-header text-center text-[40px] flex justify-center">
-    <img
-        class="rounded-lg shadow-2xl w-[400px]"
-        src={skillsImage.src}
-        alt="Abstract background"
-    />
+    <img class="w-[400px]" src={skillsImage.src} alt="Abstract background" />
 </h2>
-<div class="skills text-center grid grid-cols-2 md:grid-cols-5 gap-8 p-8">
+<div
+    class="content-section text-center grid grid-cols-5 md:grid-cols-5 gap-8 p-8 mb-4"
+>
     {
         skills.map((skill) => (
             <div class="skill flex flex-col items-center justify-center">
                 {skill.image && (
                     <img
-                        class="w-25 h-25 mb-2"
+                        class="md:w-full h-full mb-2"
                         src={skill.image}
                         alt={skill.skill}
                     />
