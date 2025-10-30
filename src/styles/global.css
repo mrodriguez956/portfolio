@@ -24,9 +24,6 @@ body {
     font-family: sans-serif;
 }
 
-main {
-}
-
 .tape {
     /*border: 4px solid black;
   background-color: rgb(27, 27, 27);
@@ -76,22 +73,20 @@ h2 {
 }
 
 .vhs-stack {
-    display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 1.5rem;
 }
-
-.vhs-stack .mobile-view {
+.vertical-stack {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-top: 1.5rem;
-    rotate: 90deg;
 }
 .tape {
     display: block;
     width: 100%;
+
     margin-bottom: 1.5rem;
     position: relative;
     transition:

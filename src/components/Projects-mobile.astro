@@ -1,8 +1,6 @@
 ---
-import dbdVHS from "../assets/VHS-DBD.png";
-import twVHS from "../assets/VHS-TW.png";
-import dbdVert from "../assets/VHS-DBD-V.png";
-import twVert from "../assets/VHS-TW-V.png";
+import dbdVHS from "../assets/VHS-DBD-V.png";
+import twVHS from "../assets/VHS-TW-V.png";
 
 const identity = {
     firstName: "Michael",
@@ -20,22 +18,19 @@ const projects = [
         title: "Dead by Daylight 90's Generator",
         description: "Custom Icon Generator for Dead by Daylight",
         image: dbdVHS,
-        vertical: dbdVert,
-        preview: "https://placecats.com/300/200?fit=contain&position=top",
+        preview: "https://placecats.com/g/300/200",
     },
     {
         title: "Wordpress Shop Theme",
         description: "Custom Wordpress Theme inspired by Shirtz.cool",
         image: dbdVHS,
-        vertical: dbdVert,
-        preview: "",
+        preview: "https://placecats.com/millie_neo/300/200",
     },
     {
         title: "TimeWizard",
         description: "Another cool project",
         image: twVHS,
-        vertical: twVert,
-        preview: "https://placecats.com/300/200?fit=contain&position=top",
+        preview: "https://placecats.com/bella/300/200",
     },
 ];
 
@@ -44,30 +39,14 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<div class="vhs-stack md:flex hidden px-[5px] col-span-1 text-center mr-5">
+<div class="md:hidden flex items-center h-[280px] px-[5px] text-center mr-5">
     {
         projects.map(
             (project) =>
                 project.image && (
                     <img
-                        class="tape"
-                        src={project.image.src}
-                        alt={project.title}
-                        data-preview={project.preview}
-                    />
-                ),
-        )
-    }
-</div>
-
-<div class="md:hidden flex items-center h-[280px] px-[5px] text-center mr-5">
-    {
-        projects.map(
-            (project) =>
-                project.vertical && (
-                    <img
                         class="tape h-[260px] w-auto mr-4"
-                        src={project.vertical.src}
+                        src={project.image.src}
                         alt={project.title}
                         data-preview={project.preview}
                     />

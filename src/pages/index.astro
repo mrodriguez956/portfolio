@@ -5,30 +5,40 @@ import Projects from "../components/Projects.astro";
 import Display from "../components/Display.astro";
 import Skills from "../components/Skills.astro";
 import About from "../components/About.astro";
+import MobileProjects from "../components/Projects-mobile.astro";
 import projectImage from "../assets/Projects.svg";
 ---
 
 <Layout>
-    <section class="content-section">
-        <Welcome />
-    </section>
-    <h2 class="section-header text-center text-[40px] flex justify-center">
-        <img
-            class="rounded-lg shadow-2xl w-[400px]"
-            src={projectImage.src}
-            alt="Abstract background"
-        />
-    </h2>
-    <section>
-        <div class="grid grid-cols-4">
-            <Projects />
-            <Display />
-        </div>
-    </section>
-    <section>
-        <About />
-    </section>
-    <section>
-        <Skills />
-    </section>
+    <main>
+        <section class="content-section">
+            <Welcome />
+        </section>
+        <h2 class="section-header text-center text-[40px] flex justify-center">
+            <img
+                class="rounded-lg shadow-2xl w-[400px]"
+                src={projectImage.src}
+                alt="Abstract background"
+            />
+        </h2>
+        <section>
+            <div class="grid grid-cols-4">
+                <Projects />
+                <Display />
+            </div>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Aliquid odit totam doloribus esse veniam maiores ducimus
+                delectus sed. Atque reprehenderit dolorem repellendus. Natus
+                tempora aperiam unde fugiat quo harum expedita.
+            </div>
+        </section>
+        <section>
+            <About />
+        </section>
+        <section>
+            <Skills />
+        </section>
+    </main>
+    <script src="../scripts/script.ts"></script>
 </Layout>
