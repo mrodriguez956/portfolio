@@ -14,27 +14,36 @@ const identity = {
 const skills = [
     {
         skill: "HTML",
-        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+        image: "devicon-html5-plain",
     },
     {
         skill: "CSS",
-        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+        image: "devicon-css3-plain",
     },
     {
         skill: "JavaScript",
-        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+        image: "devicon-typescript-plain",
     },
     {
         skill: "React",
-        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+        image: "devicon-react-original",
+    },
+    {
+        skill: "Tailwind",
+        image: "devicon-tailwindcss-original",
     },
     {
         skill: "Astro",
-        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg",
+        image: "devicon-astro-plain",
     },
     {
-        skill: "Writing Docs",
-        image: null,
+        skill: "Wordpress",
+        image: "devicon-wordpress-plain",
+    },
+
+    {
+        skill: "Adobe Suite",
+        image: "devicon-photoshop-plain",
     },
     {
         skill: "Technical Support",
@@ -65,9 +74,11 @@ const textCase = "uppercase";
         skills.map((skill) => (
             <div class="skill flex flex-col items-center justify-center">
                 {skill.image && (
-                    <img
-                        class="md:w-full h-full mb-2"
-                        src={skill.image}
+                    <i
+                        class:list={[
+                            skill.image,
+                            "text-[120px] md:w-full h-full mb-2",
+                        ]}
                         alt={skill.skill}
                     />
                 )}
