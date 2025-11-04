@@ -12,6 +12,7 @@ const identity = {
 };
 
 const skills = [
+    // Frontend
     {
         skill: "HTML",
         image: "devicon-html5-plain",
@@ -36,18 +37,41 @@ const skills = [
         skill: "Astro",
         image: "devicon-astro-plain",
     },
+
+    // Backend
+    {
+        skill: "Node.js",
+        image: "devicon-nodejs-plain",
+    },
+    {
+        skill: "PostgreSQL",
+        image: "devicon-postgresql-plain",
+    },
+
+    // Dev Tools
+    {
+        skill: "Git",
+        image: "devicon-git-plain",
+    },
+    {
+        skill: "npm",
+        image: "devicon-npm-original-wordmark",
+    },
+    {
+        skill: "Google Analytics",
+        image: "devicon-googleanalytics-plain",
+    },
+
+    // CMS
     {
         skill: "Wordpress",
         image: "devicon-wordpress-plain",
     },
 
+    // Design
     {
         skill: "Adobe Suite",
         image: "devicon-photoshop-plain",
-    },
-    {
-        skill: "Technical Support",
-        image: null,
     },
     {
         skill: "Graphic Design",
@@ -55,6 +79,12 @@ const skills = [
     },
     {
         skill: "UI/UX",
+        image: null,
+    },
+
+    // Other
+    {
+        skill: "Technical Support",
         image: null,
     },
 ];
@@ -68,7 +98,7 @@ const textCase = "uppercase";
     <img class="w-[400px]" src={skillsImage.src} alt="Abstract background" />
 </h2>
 <div
-    class="content-section text-center grid grid-cols-5 md:grid-cols-5 gap-8 p-8 mb-4"
+    class="content-section text-center grid grid-cols-2 md:grid-cols-4 gap-8 p-8 mb-4"
 >
     {
         skills.map((skill) => (
@@ -77,11 +107,12 @@ const textCase = "uppercase";
                     <i
                         class:list={[
                             skill.image,
-                            "text-[120px] md:w-full h-full mb-2",
+                            "text-[80px] md:w-full h-full mb-2",
                         ]}
                         alt={skill.skill}
                     />
                 )}
+                <span class="mt-2 text-center">{skill.skill}</span>
             </div>
         ))
     }
