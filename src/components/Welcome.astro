@@ -3,9 +3,9 @@ import tape from "../assets/tape.png";
 ---
 
 <div
-    class="grid grid-cols-1 md:grid-cols-5 text-white p-5 md:p-10 items-center"
+    class="relative grid grid-cols-1 md:grid-cols-5 text-white p-5 md:p-10 items-center overflow-hidden"
 >
-    <div class="hero-name md:col-span-3">
+    <div class="relative z-10 h-full items-center hero-name md:col-span-3">
         <span class="lg:text-2xl font-bold text-wheat">
             from the console of Michael Rodriguez
         </span>
@@ -16,26 +16,12 @@ import tape from "../assets/tape.png";
             Creating analog experiences in the digital realm.
         </div>
     </div>
-    <div class="md:col-span-2 tape-container">
-        <img
-            class="tape-img"
-            src={tape.src}
-            alt="A VHS tape with a custom label"
-        />
-    </div>
+
+    <img
+        class="absolute inset-0 w-full h-full object-contain z-0"
+        src={tape.src}
+        alt="A VHS tape with a custom label"
+    />
+
+    <div class="md:col-span-2 tape-container"></div>
 </div>
-
-<div id="hero-description"></div>
-<br class="line" />
-
-<style>
-    .vhs-distressed-edge {
-        border: 2px solid #333; /* A base border */
-        box-shadow:
-            0 0 0 2px #555,
-            /* Inner border-like shadow */ 0 0 0 4px #222,
-            /* Darker, slightly offset shadow */ inset 0 0 0 1px
-                rgba(255, 255, 255, 0.1),
-            /* Subtle inner highlight */ inset 0 0 0 2px rgba(0, 0, 0, 0.5); /* Subtle inner shadow */
-    }
-</style>
