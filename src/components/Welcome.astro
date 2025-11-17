@@ -1,11 +1,14 @@
 ---
 import tape from "../assets/tape.png";
+import mask from "../assets/HeroMask.svg";
 ---
 
 <div
     class="relative grid grid-cols-1 md:grid-cols-5 text-white p-5 md:p-10 items-center overflow-hidden min-h-[25vh] md:min-h-[30vh] lg:min-h-[40vh]"
 >
-    <div class="relative z-10 h-full flex flex-col justify-center hero-name md:col-span-3">
+    <div
+        class="relative z-10 h-full flex flex-col justify-center hero-name md:col-span-3"
+    >
         <span class="lg:text-2xl font-bold text-wheat">
             from the console of Michael Rodriguez
         </span>
@@ -16,7 +19,10 @@ import tape from "../assets/tape.png";
             Creating analog experiences in the digital realm.
         </div>
     </div>
-
+    <img
+        class="absolute left-0 top-0 h-full w-full object-cover z-8"
+        src={mask.src}
+    />
     <img
         class="absolute right-0 top-0 h-full object-contain z-0"
         src={tape.src}
