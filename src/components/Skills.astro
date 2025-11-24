@@ -11,68 +11,25 @@ const identity = {
     favoriteWorks: ["Donnie Darko", "Late Night with the Devil", "Mr. Robot"],
 };
 
-const skills = [
+const topSkills = [
     // Frontend
-    {
-        skill: "HTML",
-        image: "devicon-html5-plain",
-    },
-    {
-        skill: "CSS",
-        image: "devicon-css3-plain",
-    },
-    {
-        skill: "JavaScript",
-        image: "devicon-typescript-plain",
-    },
-    {
-        skill: "React",
-        image: "devicon-react-original",
-    },
-    {
-        skill: "Tailwind",
-        image: "devicon-tailwindcss-original",
-    },
-    {
-        skill: "Astro",
-        image: "devicon-astro-plain",
-    },
-
+    { skill: "HTML", image: "devicon-html5-plain" },
+    { skill: "CSS", image: "devicon-css3-plain" },
+    { skill: "JavaScript", image: "devicon-typescript-plain" },
+    { skill: "React", image: "devicon-react-original" },
+    { skill: "Tailwind", image: "devicon-tailwindcss-original" },
+    { skill: "Astro", image: "devicon-astro-plain" },
     // Backend
-    {
-        skill: "Node.js",
-        image: "devicon-nodejs-plain",
-    },
-    /*   {
-        skill: "PostgreSQL",
-        image: "devicon-postgresql-plain",
-    },
-*/
+    { skill: "Node.js", image: "devicon-nodejs-plain" },
     // Dev Tools
-    {
-        skill: "Git",
-        image: "devicon-git-plain",
-    },
-    {
-        skill: "npm",
-        image: "devicon-npm-original-wordmark",
-    },
-    {
-        skill: "Google Analytics",
-        image: "devicon-googleanalytics-plain",
-    },
+    { skill: "Git", image: "devicon-git-plain" },
+    { skill: "npm", image: "devicon-npm-original-wordmark" },
+];
 
-    // CMS
-    {
-        skill: "Wordpress",
-        image: "devicon-wordpress-plain",
-    },
-
-    // Design
-    {
-        skill: "Adobe Suite",
-        image: "devicon-photoshop-plain",
-    },
+const otherSkills = [
+    { skill: "Google Analytics", image: "devicon-googleanalytics-plain" },
+    { skill: "Wordpress", image: "devicon-wordpress-plain" },
+    { skill: "Adobe Suite", image: "devicon-photoshop-plain" },
 ];
 
 const skillColor = "white";
@@ -81,25 +38,29 @@ const textCase = "uppercase";
 ---
 
 <h2 class="section-header text-center text-[40px] flex justify-center">
+    <p>STARRING</p>
     <img class="w-[400px]" src={skillsImage.src} alt="Abstract background" />
 </h2>
+
+<!-- Top Skills (Icons only) -->
 <div
-    class="content-section text-center grid grid-cols-2 md:grid-cols-4 gap-8 p-8 mb-4"
+    class="content-section text-center grid grid-cols-3 md:grid-cols-5 gap-8 p-8 mb-4"
 >
     {
-        skills.map((skill) => (
-            <div class="skill flex flex-col items-center justify-center">
-                {skill.image && (
-                    <i
-                        class:list={[
-                            skill.image,
-                            "text-[80px] md:w-full h-full mb-2",
-                        ]}
-                        alt={skill.skill}
-                    />
-                )}
-                <span class="mt-2 text-center">{skill.skill}</span>
+        topSkills.map((skill) => (
+            <div
+                class="skill flex flex-col items-center justify-center"
+                title={skill.skill}
+            >
+                <i class:list={[skill.image, "text-[80px]"]} />
             </div>
         ))
     }
+</div>
+
+<!-- Other Skills (Text only) -->
+<div class="text-center px-8 pb-8">
+    <p class="text-lg">
+        {otherSkills.map((skill) => skill.skill).join("  •  ")}
+    </p>
 </div>
