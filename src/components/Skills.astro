@@ -1,5 +1,4 @@
 ---
-import skillsImage from "../assets/Skills.svg";
 const identity = {
     firstName: "Michael",
     country: "Texas",
@@ -11,25 +10,29 @@ const identity = {
     favoriteWorks: ["Donnie Darko", "Late Night with the Devil", "Mr. Robot"],
 };
 
-const topSkills = [
-    // Frontend
-    { skill: "HTML", image: "devicon-html5-plain" },
-    { skill: "CSS", image: "devicon-css3-plain" },
-    { skill: "JavaScript", image: "devicon-typescript-plain" },
-    { skill: "React", image: "devicon-react-original" },
-    { skill: "Tailwind", image: "devicon-tailwindcss-original" },
-    { skill: "Astro", image: "devicon-astro-plain" },
-    // Backend
-    { skill: "Node.js", image: "devicon-nodejs-plain" },
-    // Dev Tools
-    { skill: "Git", image: "devicon-git-plain" },
-    { skill: "npm", image: "devicon-npm-original-wordmark" },
+const starring = [
+    { skill: "React" },
+    { skill: "Astro" },
+    { skill: "Tailwind" },
 ];
 
-const otherSkills = [
-    { skill: "Google Analytics", image: "devicon-googleanalytics-plain" },
-    { skill: "Wordpress", image: "devicon-wordpress-plain" },
-    { skill: "Adobe Suite", image: "devicon-photoshop-plain" },
+const backendBy = [{ skill: "Node.js" }];
+
+const graphicsCreatedIn = [
+    { skill: "Adobe Suite" },
+];
+
+const coreTechnologies = [
+    { skill: "HTML" },
+    { skill: "CSS" },
+    { skill: "JavaScript" },
+    { skill: "Git" },
+    { skill: "npm" },
+];
+
+const alsoFeaturing = [
+    { skill: "Google Analytics" },
+    { skill: "Wordpress" },
 ];
 
 const skillColor = "white";
@@ -37,37 +40,134 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<fieldset class="text-center mt-[80px] border-2">
-    <legend class="text-[80px] font-bold mx-auto px-4">SKILLS</legend>
-    <p class="pt-0">Some things can't be unlearned...</p>
-    <div class="text-center grid grid-cols-3 md:grid-cols-5 gap-8 p-8 mb-4">
-        {
-            topSkills.map((skill) => (
-                <div
-                    class="skill flex flex-col items-center justify-center"
-                    title={skill.skill}
-                >
-                    <p />
-                    <i class:list={[skill.image, "text-[80px]"]} />
-                </div>
-            ))
-        }
+<fieldset>
+    <legend class="horror-title">SKILLS</legend>
+    <p class="horror-tagline">Some things can't be unlearned...</p>
+
+    <!-- Image Placeholder -->
+    <div style="margin: 0 auto 3rem; width: 200px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" style="opacity: 0.8;">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+            <path d="M12 6v12M6 12h12" />
+        </svg>
+        <p style="font-size: 10px; color: #6b7280; margin-top: 0.5rem;">A brain with a VHS tape inserted into it</p>
     </div>
-    <div class="text-center px-8 pb-8">
-        <p class="text-lg">
-            Starring
-            {otherSkills.map((skill) => skill.skill).join("  •  ")}
-        </p>
+
+    <div class="billing-font" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem 3rem;">
+        
+        <!-- Starring Section -->
+        <div class="credit-section">
+            <h3 class="credit-title">Starring</h3>
+            <div class="skill-name" style="display: flex; justify-content: center; gap: 1.5rem;">
+                {starring.map(skill => (
+                    <span>{skill.skill.toUpperCase()}</span>
+                ))}
+            </div>
+        </div>
+
+        <!-- Backend Section -->
+        <div class="credit-section">
+            <h3 class="credit-title">Backend by</h3>
+            <div class="skill-name" style="display: flex; justify-content: center; gap: 1.5rem;">
+                {backendBy.map(skill => (
+                    <span>{skill.skill.toUpperCase()}</span>
+                ))}
+            </div>
+        </div>
+
+        <!-- Graphics Section -->
+        <div class="credit-section">
+            <h3 class="credit-title">Graphics created in</h3>
+            <div class="skill-name" style="display: flex; justify-content: center; gap: 1.5rem;">
+                {graphicsCreatedIn.map(skill => (
+                    <span>{skill.skill.toUpperCase()}</span>
+                ))}
+            </div>
+        </div>
+
+        <!-- Core Tech Section -->
+        <div class="credit-section" style="width: 100%;">
+            <h3 class="credit-title">Core Technologies</h3>
+            <p class="text-credits" style="max-width: 36rem; margin: 0 auto;">
+                {coreTechnologies.map(s => s.skill.toUpperCase()).join(' • ')}
+            </p>
+        </div>
+
+        <!-- Also Featuring Section -->
+        <div class="credit-section" style="width: 100%;">
+            <h3 class="credit-title">Also Featuring</h3>
+            <p class="text-credits" style="max-width: 36rem; margin: 0 auto;">
+                {alsoFeaturing.map(s => s.skill.toUpperCase()).join(' • ')}
+            </p>
+        </div>
     </div>
 </fieldset>
 
-<!-- Top Skills (Icons only) -->
-<p>Starring</p>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Six+Caps&family=Inter:wght@300;400&display=swap');
 
-<p>Backend by</p>
+    .horror-title {
+        font-family: 'Creepster', cursive;
+        line-height: 1;
+        font-size: 5rem; /* 80px */
+        font-weight: 700;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
 
-<p>Graphics created in</p>
+    .horror-tagline {
+        font-style: italic;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        color: #888;
+        padding-top: 0;
+        margin-bottom: 2rem;
+    }
 
-<p>Core Technologies</p>
+    .billing-font {
+        font-family: 'Six Caps', sans-serif;
+        text-transform: uppercase;
+        line-height: 0.9;
+    }
 
-<!-- Other Skills (Text only) -->
+    .credit-title {
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+        font-weight: 300;
+        color: #ccc;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+    }
+
+    .skill-name {
+        font-size: 2.5rem;
+        color: #fff;
+        letter-spacing: 1px;
+    }
+
+    .credit-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .text-credits {
+        font-size: 1rem;
+        color: #bbb;
+        letter-spacing: 1px;
+        line-height: 1.5;
+        text-transform: uppercase;
+    }
+
+    fieldset {
+        text-align: center;
+        margin-top: 5rem; /* 80px */
+        border: 2px solid #333;
+        padding: 2rem 4rem; /* p-8 md:p-16 */
+        max-width: 900px;
+        width: 100%;
+    }
+</style>
+
