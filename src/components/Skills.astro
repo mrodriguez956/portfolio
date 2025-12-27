@@ -37,30 +37,37 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<h2 class="section-header text-center text-[40px] flex justify-center">
-    <p>STARRING</p>
-    <img class="w-[400px]" src={skillsImage.src} alt="Abstract background" />
-</h2>
+<fieldset class="text-center mt-[80px] border-2">
+    <legend class="text-[80px] font-bold mx-auto px-4">SKILLS</legend>
+    <p class="pt-0">Some things can't be unlearned...</p>
+    <div class="text-center grid grid-cols-3 md:grid-cols-5 gap-8 p-8 mb-4">
+        {
+            topSkills.map((skill) => (
+                <div
+                    class="skill flex flex-col items-center justify-center"
+                    title={skill.skill}
+                >
+                    <p />
+                    <i class:list={[skill.image, "text-[80px]"]} />
+                </div>
+            ))
+        }
+    </div>
+    <div class="text-center px-8 pb-8">
+        <p class="text-lg">
+            Starring
+            {otherSkills.map((skill) => skill.skill).join("  •  ")}
+        </p>
+    </div>
+</fieldset>
 
 <!-- Top Skills (Icons only) -->
-<div
-    class="content-section text-center grid grid-cols-3 md:grid-cols-5 gap-8 p-8 mb-4"
->
-    {
-        topSkills.map((skill) => (
-            <div
-                class="skill flex flex-col items-center justify-center"
-                title={skill.skill}
-            >
-                <i class:list={[skill.image, "text-[80px]"]} />
-            </div>
-        ))
-    }
-</div>
+<p>Starring</p>
+
+<p>Backend by</p>
+
+<p>Graphics created in</p>
+
+<p>Core Technologies</p>
 
 <!-- Other Skills (Text only) -->
-<div class="text-center px-8 pb-8">
-    <p class="text-lg">
-        {otherSkills.map((skill) => skill.skill).join("  •  ")}
-    </p>
-</div>
