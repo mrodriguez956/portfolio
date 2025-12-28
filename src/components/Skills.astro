@@ -14,13 +14,17 @@ const starring = [
     { skill: "React" },
     { skill: "Astro" },
     { skill: "Tailwind" },
+    { skill: "Python" },
 ];
 
-const backendBy = [{ skill: "Node.js" }];
-
-const graphicsCreatedIn = [
-    { skill: "Adobe Suite" },
+const backendBy = [
+    { skill: "Node.js" },
+    { skill: "PHP" },
+    { skill: "Java" },
+    { skill: "SQL" },
 ];
+
+const graphicsCreatedIn = [{ skill: "Adobe Suite" }, { skill: "Blender" }];
 
 const coreTechnologies = [
     { skill: "HTML" },
@@ -28,11 +32,17 @@ const coreTechnologies = [
     { skill: "JavaScript" },
     { skill: "Git" },
     { skill: "npm" },
+    { skill: "Bootstrap" },
 ];
 
 const alsoFeaturing = [
     { skill: "Google Analytics" },
     { skill: "Wordpress" },
+    { skill: "AWS" },
+    { skill: "Fabric.js" },
+    { skill: "Bash" },
+    { skill: "Linux" },
+    { skill: "Visual Studio Code" },
 ];
 
 const skillColor = "white";
@@ -40,48 +50,75 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<fieldset>
+<fieldset class="text-center">
     <legend class="horror-title">SKILLS</legend>
     <p class="horror-tagline">Some things can't be unlearned...</p>
 
     <!-- Image Placeholder -->
     <div style="margin: 0 auto 3rem; width: 200px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" style="opacity: 0.8;">
-            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-            <path d="M12 6v12M6 12h12" />
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="1"
+            style="opacity: 0.8;"
+        >
+            <path
+                d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+            ></path>
+            <path d="M12 6v12M6 12h12"></path>
         </svg>
-        <p style="font-size: 10px; color: #6b7280; margin-top: 0.5rem;">A brain with a VHS tape inserted into it</p>
+        <p style="font-size: 10px; color: #6b7280; margin-top: 0.5rem;">
+            A brain with a VHS tape inserted into it
+        </p>
     </div>
 
-    <div class="billing-font" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem 3rem;">
-        
+    <div
+        class="billing-font"
+        style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem 3rem;"
+    >
         <!-- Starring Section -->
         <div class="credit-section">
             <h3 class="credit-title">Starring</h3>
-            <div class="skill-name" style="display: flex; justify-content: center; gap: 1.5rem;">
-                {starring.map(skill => (
-                    <span>{skill.skill.toUpperCase()}</span>
-                ))}
+            <div
+                class="skill-name"
+                style="display: flex; justify-content: center; gap: 1.5rem;"
+            >
+                {
+                    starring.map((skill) => (
+                        <span>{skill.skill.toUpperCase()}</span>
+                    ))
+                }
             </div>
         </div>
 
         <!-- Backend Section -->
         <div class="credit-section">
             <h3 class="credit-title">Backend by</h3>
-            <div class="skill-name" style="display: flex; justify-content: center; gap: 1.5rem;">
-                {backendBy.map(skill => (
-                    <span>{skill.skill.toUpperCase()}</span>
-                ))}
+            <div
+                class="skill-name"
+                style="display: flex; justify-content: center; gap: 1.5rem;"
+            >
+                {
+                    backendBy.map((skill) => (
+                        <span>{skill.skill.toUpperCase()}</span>
+                    ))
+                }
             </div>
         </div>
 
         <!-- Graphics Section -->
         <div class="credit-section">
             <h3 class="credit-title">Graphics created in</h3>
-            <div class="skill-name" style="display: flex; justify-content: center; gap: 1.5rem;">
-                {graphicsCreatedIn.map(skill => (
-                    <span>{skill.skill.toUpperCase()}</span>
-                ))}
+            <div
+                class="skill-name"
+                style="display: flex; justify-content: center; gap: 1.5rem;"
+            >
+                {
+                    graphicsCreatedIn.map((skill) => (
+                        <span>{skill.skill.toUpperCase()}</span>
+                    ))
+                }
             </div>
         </div>
 
@@ -89,7 +126,7 @@ const textCase = "uppercase";
         <div class="credit-section" style="width: 100%;">
             <h3 class="credit-title">Core Technologies</h3>
             <p class="text-credits" style="max-width: 36rem; margin: 0 auto;">
-                {coreTechnologies.map(s => s.skill.toUpperCase()).join(' • ')}
+                {coreTechnologies.map((s) => s.skill.toUpperCase()).join(" • ")}
             </p>
         </div>
 
@@ -97,17 +134,17 @@ const textCase = "uppercase";
         <div class="credit-section" style="width: 100%;">
             <h3 class="credit-title">Also Featuring</h3>
             <p class="text-credits" style="max-width: 36rem; margin: 0 auto;">
-                {alsoFeaturing.map(s => s.skill.toUpperCase()).join(' • ')}
+                {alsoFeaturing.map((s) => s.skill.toUpperCase()).join(" • ")}
             </p>
         </div>
     </div>
 </fieldset>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Six+Caps&family=Inter:wght@300;400&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@300;400&display=swap");
 
     .horror-title {
-        font-family: 'Creepster', cursive;
+        font-family: "Creepster", cursive;
         line-height: 1;
         font-size: 5rem; /* 80px */
         font-weight: 700;
@@ -126,12 +163,13 @@ const textCase = "uppercase";
     }
 
     .billing-font {
-        font-family: 'Six Caps', sans-serif;
+        font-family: "OptiStevas", sans-serif;
         text-transform: uppercase;
         line-height: 0.9;
     }
 
     .credit-title {
+        font-family: "OptiStevas", sans-serif;
         font-size: 0.8rem;
         letter-spacing: 3px;
         font-weight: 300;
@@ -141,6 +179,7 @@ const textCase = "uppercase";
     }
 
     .skill-name {
+        font-family: "OptiStevas", sans-serif;
         font-size: 2.5rem;
         color: #fff;
         letter-spacing: 1px;
@@ -154,6 +193,7 @@ const textCase = "uppercase";
     }
 
     .text-credits {
+        font-family: "OptiStevas", sans-serif;
         font-size: 1rem;
         color: #bbb;
         letter-spacing: 1px;
@@ -170,4 +210,3 @@ const textCase = "uppercase";
         width: 100%;
     }
 </style>
-
