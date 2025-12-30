@@ -6,7 +6,7 @@
 }
 
 :root {
-    --background-color: #0a0a0a;
+    --background-color: black;
     --primary-color: #0a0a0a;
     --secondary-color: #222222;
     --text-color: #e0e0e0;
@@ -94,8 +94,7 @@ h2 {
 
     margin-bottom: 1.5rem;
     position: relative;
-    transition:
-        transform 0.15s ease;
+    transition: transform 0.15s ease;
     cursor: pointer;
 }
 .tape:nth-child(odd) {
@@ -117,6 +116,21 @@ h2 {
 
 .content-section {
     position: relative;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-color);
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+input {
+    background-color: white;
+}
+
+.contact-form {
+    margin: 20px;
+    padding-bottom: 20px;
 }

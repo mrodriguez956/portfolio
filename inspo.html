@@ -1,481 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>VHS Portfolio Showcase</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <!-- Use Inter font and set a dark background -->
-        <style>
-            @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro VCR Front Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vfd-glow: #00ffd5;
+            --vfd-dim: #004d40;
+            --vcr-plastic: #1a1a1a;
+        }
 
-            body {
-                font-family: "Inter", sans-serif;
-                background-color: #000; /* True black background */
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 2rem;
-                color: #e0e0e0; /* Default text color */
-            }
+        body {
+            background-color: #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-            /* --- NEW: VHS Sleeve Wrapper --- */
-            .vhs-sleeve {
-                background-color: #1a1a1a; /* Dark gray for the sleeve material */
-                border: 4px solid #333; /* Thick dark border */
-                box-shadow:
-                    0 10px 20px rgba(0, 0, 0, 0.9),
-                    inset 0 0 15px rgba(255, 255, 255, 0.05); /* Deep, inset shadow */
-                padding: 0; /* Removed padding to let the header image touch the edge */
-                max-width: 1000px;
-                width: 95%;
-                overflow: hidden; /* Contains the children */
-            }
+        /* The VFD Screen Styling */
+        .vfd-container {
+            background: #050a0a;
+            border: 4px solid #000;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
 
-            /* Hero Image/Visual Area */
-            .hero-visual {
-                width: 100%;
-                height: 250px;
-                background-image: url("https://placehold.co/1000x250/333333/dcdcdc?text=Insert+Key+Art+Here");
-                background-size: cover;
-                background-position: center;
-                border-bottom: 5px solid #e53e3e; /* Red dividing line */
-            }
+        .vfd-text {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--vfd-glow);
+            text-shadow: 0 0 8px rgba(0, 255, 213, 0.6), 0 0 15px rgba(0, 255, 213, 0.3);
+            text-transform: uppercase;
+        }
 
-            /* Content Area inside sleeve (below image) */
-            .sleeve-content {
-                padding: 2.5rem 2rem;
-            }
+        .vfd-dim {
+            color: var(--vfd-dim);
+            text-shadow: none;
+        }
 
-            /* --- Retro Title/Heading Styling --- */
-            .sleeve-title {
-                font-family: "VT323", monospace;
-                color: #e53e3e; /* Deep red accent for title */
-                text-shadow: 2px 2px 0px #000;
-                letter-spacing: 2px;
-                border-bottom: 2px solid #555;
-                padding-bottom: 0.5rem;
-                margin-bottom: 1rem;
-            }
+        /* Bezel and Chassis Effects */
+        .chassis {
+            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 10%, #111 100%);
+            border-bottom: 3px solid #000;
+        }
 
-            /* --- Custom Retro/TV Styling --- */
+        /* Glass Reflection */
+        .vfd-glass::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
 
-            /* The CRT Screen */
-            .tv-screen {
-                position: relative;
-                background-color: #000;
-                color: #4caf50; /* Retro text color */
-                font-family: "VT323", monospace; /* Retro arcade font */
-                text-shadow: 0 0 5px #4caf50;
-                line-height: 1.2;
-                padding: 1rem;
-                height: 100%;
-                overflow: hidden;
-                transition: all 0.3s;
-            }
+    <div class="max-w-2xl w-full p-4">
+        <!-- VCR Chassis -->
+        <div class="chassis rounded-xl p-8 shadow-2xl border-t border-gray-700">
+            
+            <div class="flex flex-col md:flex-row gap-8 items-center justify-center">
+                
+                <!-- Center: The VFD Screen -->
+                <div class="vfd-container vfd-glass flex-1 min-w-[300px] h-32 rounded-lg p-4 flex flex-col justify-center items-center">
+                    <span class="vfd-text text-5xl tracking-widest">PROJECT</span>
+                </div>
 
-            /* Scanline Effect */
-            .tv-screen::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                /* Creates the horizontal scanlines */
-                background: repeating-linear-gradient(
-                    0deg,
-                    rgba(0, 0, 0, 0.4) 0px,
-                    /* Dark line start */ rgba(0, 0, 0, 0.6) 1px,
-                    /* Dark line end */ transparent 1px,
-                    transparent 3px /* Space between lines */
-                );
-                pointer-events: none;
-                opacity: 0.6;
-                z-index: 10;
-            }
-
-            /* Subtle Screen Flicker Animation */
-            .tv-screen-container {
-                border: 8px solid #000;
-                box-shadow:
-                    0 0 0 10px #222,
-                    inset 0 0 20px rgba(0, 0, 0, 0.8),
-                    0 20px 30px rgba(0, 0, 0, 0.5);
-                border-radius: 12px;
-                overflow: hidden;
-                background-color: #111; /* Bezel color */
-            }
-
-            .flicker {
-                animation: flicker 0.15s infinite alternate;
-            }
-            @keyframes flicker {
-                0% {
-                    opacity: 1;
-                }
-                100% {
-                    opacity: 0.95;
-                }
-            }
-
-            /* VHS Tape Styling */
-            .vhs-tape-stack {
-                /* Ensures alignment for the new sleeve look */
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            .vhs-tape {
-                background-color: #333;
-                border: 1px solid #555;
-                box-shadow:
-                    0 4px 0 #000,
-                    0 8px 15px rgba(0, 0, 0, 0.5); /* Simulates stacking depth */
-                margin-bottom: 1.5rem; /* Space between tapes */
-                padding: 1rem;
-                cursor: pointer;
-                transition:
-                    transform 0.15s ease,
-                    box-shadow 0.15s ease;
-                position: relative;
-                width: 180px; /* Adjusted tape width for better fit */
-            }
-
-            /* Explicitly apply rotation for odd/even to fix the transition issue */
-            .vhs-tape:nth-child(odd) {
-                transform: rotate(-1deg); /* Odd tapes tilt left */
-            }
-            .vhs-tape:nth-child(even) {
-                transform: rotate(1deg); /* Even tapes tilt right */
-            }
-
-            .vhs-tape:hover {
-                transform: translateY(-5px) scale(1.02) rotate(0deg); /* Lift and center on hover */
-                box-shadow:
-                    0 10px 0 #000,
-                    0 15px 25px rgba(0, 0, 0, 0.7);
-                z-index: 20;
-            }
-            .vhs-label {
-                display: block;
-                background-color: #ff69b4; /* Neon pink label */
-                color: #000;
-                padding: 0.25rem 0.5rem;
-                font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                border: 2px solid #000;
-            }
-
-            /* --- NEW: Bottom Credit Block Styling --- */
-            .credit-block {
-                background-color: #111; /* Darker background for the credit block */
-                border-top: 2px solid #555;
-                padding: 1.5rem 2rem;
-                font-size: 0.7rem;
-                color: #888;
-                line-height: 1.4;
-                letter-spacing: 0.5px;
-                text-transform: uppercase;
-            }
-            .credit-block span {
-                color: #fff;
-                font-weight: bold;
-                margin-right: 0.5rem;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="vhs-sleeve">
-            <!-- TOP VISUAL FOCUS -->
-            <div class="hero-visual"></div>
-
-            <div class="sleeve-content">
-                <!-- 1. TITLE / MOVIE SUMMARY (Hero Section) -->
-                <header class="mb-10">
-                    <h1
-                        class="sleeve-title text-5xl font-extrabold text-center"
-                    >
-                        M. R. PORTFOLIO: THE RETRO RAMPAGE
-                    </h1>
-
-                    <div
-                        class="max-w-4xl mx-auto text-sm text-gray-300 text-left leading-relaxed mt-6"
-                    >
-                        <span class="text-pink-500 font-bold">Synopsis:</span>
-                        Michael Rodriguez, a Help Desk Support Technician based
-                        in Texas, embarks on a digital quest for a career in Web
-                        Development. Armed with a Bachelor's Degree in Computer
-                        Science from UTSA and fueled by a diet of gaming, web
-                        dev, and existential cinema (*Donnie Darko*, *Mr.
-                        Robot*), he unleashes a series of projects built from
-                        the ground up. The mission is clear: demonstrate
-                        capability, creativity, and a knack for the nostalgic.
-                        Every project below is a tape, waiting to be inserted
-                        into the system.
-                    </div>
-                </header>
-
-                <!-- 2. MAIN 2-COLUMN LAYOUT (Projects/TV) -->
-                <section
-                    id="project-showcase"
-                    class="flex flex-col lg:flex-row gap-8"
-                >
-                    <!-- LEFT COLUMN: VHS Tape Stack + SKILLS -->
-                    <div
-                        class="left-sleeve-panel w-full lg:w-1/3 flex flex-col items-center"
-                    >
-                        <h2
-                            class="text-xl text-yellow-300 mb-6 font-bold uppercase tracking-widest text-center"
-                        >
-                            Project Tapes
-                        </h2>
-
-                        <!-- VHS Tape Stack (List of Projects) -->
-                        <div class="vhs-tape-stack w-full px-4">
-                            <a
-                                class="vhs-tape block rounded-sm"
-                                data-project-id="perk-pack-creator"
-                            >
-                                <span class="vhs-label"
-                                    >90: Perk Pack Creator</span
-                                >
-                                <div class="text-xs text-gray-400 mt-2">
-                                    Sega Genesis style asset generator.
-                                </div>
-                            </a>
-
-                            <a
-                                class="vhs-tape block rounded-sm bg-blue-700/70"
-                                data-project-id="terminal-chat"
-                            >
-                                <span class="vhs-label bg-yellow-400"
-                                    >Terminal Chat App (C.H.A.T.)</span
-                                >
-                                <div class="text-xs text-gray-300 mt-2">
-                                    A multi-user app using Firebase.
-                                </div>
-                            </a>
-
-                            <a
-                                class="vhs-tape block rounded-sm bg-red-700/70"
-                                data-project-id="3d-sim"
-                            >
-                                <span class="vhs-label bg-cyan-400"
-                                    >Asteroid Field Simulation</span
-                                >
-                                <div class="text-xs text-gray-300 mt-2">
-                                    Three.js 3D physics demo.
-                                </div>
-                            </a>
-
-                            <a
-                                class="vhs-tape block rounded-sm bg-green-700/70"
-                                data-project-id="todo-list"
-                            >
-                                <span class="vhs-label bg-lime-400"
-                                    >Matrix Todo List (v1.0)</span
-                                >
-                                <div class="text-xs text-gray-300 mt-2">
-                                    Personal productivity tracker.
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- SKILLS SECTION (Styled as a credit block) -->
-                        <section
-                            class="mt-8 pt-6 w-full border-t border-gray-700 text-center"
-                        >
-                            <h2
-                                class="text-base text-gray-500 mb-4 font-bold tracking-wider uppercase"
-                            >
-                                Runtime Stats: TECHNICAL DATA
-                            </h2>
-                            <div
-                                class="text-sm font-mono text-cyan-400 flex flex-wrap justify-center gap-x-6 gap-y-2"
-                            >
-                                <div class="bg-gray-800 p-1 rounded-sm">
-                                    HTML5
-                                </div>
-                                <div class="bg-gray-800 p-1 rounded-sm">
-                                    CSS3 / Tailwind
-                                </div>
-                                <div class="bg-gray-800 p-1 rounded-sm">
-                                    JavaScript
-                                </div>
-                                <div class="bg-gray-800 p-1 rounded-sm">
-                                    React
-                                </div>
-                                <div class="bg-gray-800 p-1 rounded-sm">
-                                    Firebase
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-
-                    <!-- RIGHT COLUMN: TV Screen (Preview) -->
-                    <div class="right-sleeve-panel w-full lg:w-2/3">
-                        <div class="tv-screen-container h-[500px] flicker">
-                            <div id="tv-display" class="tv-screen rounded-lg">
-                                <!-- Default content -->
-                                <div
-                                    class="h-full flex flex-col justify-center items-center text-center"
-                                >
-                                    <svg
-                                        class="w-16 h-16 mb-4 text-pink-600"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M9.75 17L9 20l-1 1h8l-1-1v-3.25m-7-2.45h10.5M5.25 8v1.5a1.5 1.5 0 01-1.5 1.5H3"
-                                        />
-                                    </svg>
-                                    <h2 class="text-3xl font-bold">WELCOME!</h2>
-                                    <p class="mt-4 text-lg">
-                                        Insert a project VHS tape to begin
-                                        previewing.
-                                    </p>
-                                    <p class="mt-2 text-sm text-gray-700/70">
-                                        Initializing system...
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
 
-            <!-- 3. BOTTOM CREDIT BLOCK (Personal Details) -->
-            <footer class="credit-block">
-                <p>
-                    <span>Starring:</span> MICHAEL RODRIGUEZ.
-                    <span>Directed by:</span> WEB DEV.
-                    <span>Featuring:</span> COMPUTER SCIENCE.
-                    <span>Location:</span> TEXAS.
-                    <span>Interests:</span> GAMING, CARD COLLECTING, DONNIE
-                    DARKO. <span>Contact:</span> EMAIL AT REQUEST.
-                </p>
-            </footer>
+            <!-- Tape Slot Branding -->
+            <div class="mt-8 pt-4 border-t border-gray-900 flex justify-between items-center opacity-30">
+                <span class="text-white text-[10px] font-serif italic">Hi-Fi Stereo / HQ Video System</span>
+                <div class="flex gap-2">
+                    <div class="h-1 w-8 bg-gray-600 rounded"></div>
+                    <div class="h-1 w-4 bg-gray-600 rounded"></div>
+                </div>
+            </div>
         </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const tapes = document.querySelectorAll(".vhs-tape");
-                const tvScreen = document.getElementById("tv-display");
-                const tvContainer = document.querySelector(
-                    ".tv-screen-container",
-                );
+        <!-- Instructions -->
+        <div class="mt-6 text-gray-500 text-center text-sm">
+            <p>Interactive VFD Component — Click the buttons to simulate VCR states.</p>
+        </div>
+    </div>
 
-                // Data storage for project content
-                const projectData = {
-                    "perk-pack-creator": {
-                        title: "90: Perk Pack Creator",
-                        details:
-                            "A fun web utility designed to generate custom pixel-art assets for retro-themed games. Built with vanilla JavaScript and Canvas for high performance.",
-                        status: "Completed, Live Demo Available.",
-                        technologies: "JavaScript, HTML5 Canvas, Tailwind CSS",
-                        color: "#FF69B4", // Neon pink accent
-                    },
-                    "terminal-chat": {
-                        title: "Terminal Chat App (C.H.A.T.)",
-                        details:
-                            "A real-time, multi-user chat application mimicking an old-school terminal interface. Uses Firebase for persistence and authentication.",
-                        status: "In Development.",
-                        technologies: "React, Firebase Firestore, Custom Hooks",
-                        color: "#FFEA00", // Yellow accent
-                    },
-                    "3d-sim": {
-                        title: "Asteroid Field Simulation",
-                        details:
-                            "An immersive 3D scene built to test rendering performance and physics. Features custom camera controls and basic collision detection.",
-                        status: "Completed.",
-                        technologies: "Three.js, JavaScript (ES6)",
-                        color: "#00FFFF", // Cyan accent
-                    },
-                    "todo-list": {
-                        title: "Matrix Todo List (v1.0)",
-                        details:
-                            "A productivity tool inspired by the 'digital rain' aesthetic. Users can add, complete, and delete tasks which are stored securely.",
-                        status: "Completed, Ready for use.",
-                        technologies:
-                            "HTML, CSS Grid, JavaScript (Local Storage Mock)",
-                        color: "#A7F3D0", // Mint green accent
-                    },
-                };
-
-                // Function to load content into the TV screen
-                const loadContent = (projectId) => {
-                    const project = projectData[projectId];
-                    if (!project) {
-                        tvScreen.innerHTML = `<h2 class="text-3xl">ERROR</h2><p>Tape data corrupted. Project ID not found.</p>`;
-                        return;
-                    }
-
-                    // Apply a glitch effect during the switch
-                    tvContainer.classList.add("flicker");
-                    tvScreen.style.borderColor = project.color; // Update border/accent color
-
-                    setTimeout(() => {
-                        // Update TV screen color based on project (for a nice accent)
-                        tvScreen.style.color = project.color;
-                        tvScreen.style.textShadow = `0 0 5px ${project.color}`;
-
-                        const contentHtml = `
-                        <div class="h-full flex flex-col justify-start">
-                            <h2 class="text-4xl font-bold text-current mb-4">${project.title}</h2>
-                            <p class="text-yellow-400 mb-4 text-xl">-- SYSTEM LOG // PROJECT FILE LOADED --</p>
-
-                            <p class="mb-6">
-                                <span class="text-pink-500 font-bold">// Project Summary:</span><br>
-                                ${project.details}
-                            </p>
-
-                            <p class="mb-6">
-                                <span class="text-pink-500 font-bold">// Technologies Used:</span><br>
-                                > ${project.technologies}
-                            </p>
-
-                            <p class="text-lg mt-auto pb-4">
-                                <span class="text-pink-500 font-bold">Status:</span> ${project.status}
-                            </p>
-
-                            <!-- Action Buttons -->
-                            <div class="flex gap-4 border-t border-gray-700 pt-4">
-                                <button class="bg-gray-700 hover:bg-gray-500 text-white font-bold py-1 px-4 rounded-sm text-sm transition-colors">
-                                    [RUN DEMO]
-                                </button>
-                                <button class="bg-gray-700 hover:bg-gray-500 text-white font-bold py-1 px-4 rounded-sm text-sm transition-colors">
-                                    [VIEW CODE]
-                                </button>
-                            </div>
-
-                        </div>
-                    `;
-
-                        tvScreen.innerHTML = contentHtml;
-                        tvContainer.classList.remove("flicker"); // Remove glitch after loading
-                    }, 300); // Small delay to show the effect
-                };
-
-                // Attach event listeners to all tapes
-                tapes.forEach((tape) => {
-                    tape.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        const projectId =
-                            e.currentTarget.getAttribute("data-project-id");
-                        loadContent(projectId);
-                    });
-                });
-
-                // Optional: Initial load of the first project for immediate viewing
-                // loadContent('perk-pack-creator');
-            });
-        </script>
-    </body>
+</body>
 </html>

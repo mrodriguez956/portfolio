@@ -50,8 +50,10 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<fieldset class="text-center">
-    <legend class="horror-title">SKILLS</legend>
+<fieldset
+    class="text-center mt-20 border-2 border-gray-700 p-8 md:px-16 max-w-4xl w-full"
+>
+    <legend class="horror-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl">SKILLS</legend>
     <p class="horror-tagline">Some things can't be unlearned...</p>
 
     <!-- Image Placeholder -->
@@ -86,7 +88,7 @@ const textCase = "uppercase";
             >
                 {
                     starring.map((skill) => (
-                        <span>{skill.skill.toUpperCase()}</span>
+                        <span class="text-2xl md:text-3xl lg:text-4xl">{skill.skill.toUpperCase()}</span>
                     ))
                 }
             </div>
@@ -101,7 +103,7 @@ const textCase = "uppercase";
             >
                 {
                     backendBy.map((skill) => (
-                        <span>{skill.skill.toUpperCase()}</span>
+                        <span class="text-2xl md:text-3xl lg:text-4xl">{skill.skill.toUpperCase()}</span>
                     ))
                 }
             </div>
@@ -116,7 +118,7 @@ const textCase = "uppercase";
             >
                 {
                     graphicsCreatedIn.map((skill) => (
-                        <span>{skill.skill.toUpperCase()}</span>
+                        <span class="text-2xl md:text-3xl lg:text-4xl">{skill.skill.toUpperCase()}</span>
                     ))
                 }
             </div>
@@ -146,7 +148,6 @@ const textCase = "uppercase";
     .horror-title {
         font-family: "Creepster", cursive;
         line-height: 1;
-        font-size: 5rem; /* 80px */
         font-weight: 700;
         margin: 0 auto;
         padding: 0 1.5rem;
@@ -180,7 +181,6 @@ const textCase = "uppercase";
 
     .skill-name {
         font-family: "OptiStevas", sans-serif;
-        font-size: 2.5rem;
         color: #fff;
         letter-spacing: 1px;
     }
@@ -199,14 +199,5 @@ const textCase = "uppercase";
         letter-spacing: 1px;
         line-height: 1.5;
         text-transform: uppercase;
-    }
-
-    fieldset {
-        text-align: center;
-        margin-top: 5rem; /* 80px */
-        border: 2px solid #333;
-        padding: 2rem 4rem; /* p-8 md:p-16 */
-        max-width: 900px;
-        width: 100%;
     }
 </style>
