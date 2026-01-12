@@ -13,13 +13,6 @@ const projects = [
         preview: "../src/assets/90s-preview.png",
     },
     {
-        title: "The Blog",
-        description: "Custom Wordpress Theme inspired by Shirtz.cool",
-        image: dbdVHS,
-        vertical: dbdVert,
-        preview: "../src/assets/blog-preview.png",
-    },
-    {
         title: "TimeWizard",
         description: "Another cool project",
         image: twVHS,
@@ -27,10 +20,17 @@ const projects = [
         preview: "../src/assets/TW-preview.png",
     },
     {
+        title: "The Blog",
+        description: "Custom Wordpress Theme inspired by Shirtz.cool",
+        image: null,
+        vertical: null,
+        preview: "../src/assets/blog-preview.png",
+    },
+    {
         title: "WordPress Theme",
         description: "Custom Wordpress Theme inspired by Shirtz.cool",
-        image: dbdVHS,
-        vertical: dbdVert,
+        image: null,
+        vertical: null,
         preview: "https://placecats.com/millie_neo/300/200",
     },
 ];
@@ -38,32 +38,46 @@ const projects = [
 
 <div class="vhs-stack md:flex hidden px-[5px] col-span-1 text-center mr-5">
     {
-        projects.map(
-            (project) =>
-                project.image && (
-                    <img
-                        class="tape"
-                        src={project.image.src}
-                        alt={project.title}
-                        data-preview={project.preview}
-                    />
-                ),
+        projects.map((project) =>
+            project.image ? (
+                <img
+                    class="tape"
+                    src={project.image.src}
+                    alt={project.title}
+                    data-preview={project.preview}
+                />
+            ) : (
+                <div
+                    data-preview={project.preview}
+                    class="tape flex items-center justify-center bg-gray-500 text-white text-lg text-center p-2 rounded-md"
+                    style="width: 200px; height: 40px;"
+                >
+                    Coming Soon
+                </div>
+            ),
         )
     }
 </div>
 
 <div class="md:hidden flex items-center h-[280px] px-[5px] text-center mr-5">
     {
-        projects.map(
-            (project) =>
-                project.vertical && (
-                    <img
-                        class="tape h-[260px] w-auto mr-4"
-                        src={project.vertical.src}
-                        alt={project.title}
-                        data-preview={project.preview}
-                    />
-                ),
+        projects.map((project) =>
+            project.vertical ? (
+                <img
+                    class="tape h-[260px] w-auto mr-4"
+                    src={project.vertical.src}
+                    alt={project.title}
+                    data-preview={project.preview}
+                />
+            ) : (
+                <div
+                    data-preview={project.preview}
+                    class="tape flex items-center justify-center bg-gray-500 text-white text-lg text-center p-2 rounded-md"
+                    style="width: 150px; height: 260px; margin-right: 1rem; writing-mode: vertical-rl;"
+                >
+                    Coming Soon
+                </div>
+            ),
         )
     }
 </div>
