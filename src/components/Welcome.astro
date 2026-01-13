@@ -4,18 +4,26 @@ import mask from "../assets/HeroMask.svg";
 ---
 
 <div
-    class="relative grid grid-cols-1 md:grid-cols-5 text-white p-5 md:p-10 items-center overflow-hidden min-h-[25vh] md:min-h-[30vh] lg:min-h-[40vh]"
+    class="hero-section relative grid grid-cols-1 md:grid-cols-5 text-white sm:text-left md:text-center p-5 md:p-10 items-center overflow-hidden min-h-[25vh] md:min-h-[30vh] lg:min-h-[40vh]"
 >
-    <div
-        class="relative z-10 h-full flex flex-col justify-center hero-name md:col-span-3"
-    >
-        <span class="text-lg lg:text-2xl font-bold text-wheat">
-            from the console of Michael Rodriguez
+    <div class="relative z-10 h-full flex flex-col hero-name md:col-span-3">
+        <span class="text-lg lg:text-2xl text-wheat hero-sub">
+            Michael Rodriguez Presents
         </span>
-        <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-none">
-            Full-Stack Engineer
-        </h1>
-        <div class="py-2 text-lg lg:text-3xl">
+        <div class="relative inline-block md:block">
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl hero-main">
+                FULL STACK <br />ENGINEER
+            </h1>
+
+            <span
+                class="text-red-600 text-4xl md:text-6xl lg:text-7xl
+                                  font-['TDreams']"
+            >
+                Portfolio
+            </span>
+        </div>
+
+        <div class="py-2 text-lg sm:text-lg lg:text-2xl hero-sub">
             Creating analog experiences in the digital realm.
         </div>
     </div>

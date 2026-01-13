@@ -5,6 +5,20 @@
     src: url("../assets/fonts/OPTIStevas-Light.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "Speltale";
+    src: url("../assets/fonts/SpeltaleFont-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Advercase";
+    src: url("../assets/fonts/AdvercaseFont-Regular.otf") format("opentype");
+}
+@font-face {
+    font-family: "TDreams";
+    src: url("../assets/fonts/TeenageDreams-Regular.otf") format("opentype");
+}
+
 :root {
     --background-color: black;
     --primary-color: #0a0a0a;
@@ -68,13 +82,21 @@ h2 {
     border: 2px solid var(--secondary-color);
 }
 
-.hero-name {
-    font-family: "OptiStevas";
+.hero-main {
+    font-family: "Speltale";
+}
+
+.hero-sub {
+    font-family: "Advercase";
 }
 
 .hero-container {
     height: 25vw;
     align-items: center;
+}
+
+.hero-tag {
+    font-family: "TDreams";
 }
 
 .vhs-stack {
@@ -126,6 +148,11 @@ h2 {
     margin: 20px auto;
 }
 
+.hero-section {
+    max-width: 1400px;
+    width: 100%;
+}
+
 input {
     background-color: white;
 }
@@ -140,4 +167,68 @@ input {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+.horror-title {
+    font-family: "Speltale";
+    line-height: 1;
+    font-weight: 700;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.horror-tagline {
+    font-style: italic;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #888;
+    padding-top: 0;
+    margin-bottom: 2rem;
+}
+
+.billing-font {
+    font-family: "OptiStevas", sans-serif;
+    text-transform: uppercase;
+    line-height: 0.9;
+}
+
+.credit-title {
+    font-family: "OptiStevas", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    font-weight: 300;
+    color: #ccc;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.skill-name {
+    font-family: "OptiStevas", sans-serif;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.credit-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.text-credits {
+    font-family: "OptiStevas", sans-serif;
+    font-size: 1rem;
+    color: #bbb;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.about-legend {
+    font-family: "Creepster", cursive;
+    line-height: 1;
+    font-weight: 700;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    color: white;
 }

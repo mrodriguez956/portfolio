@@ -3,17 +3,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectPreview = document.querySelector(
     "#project-preview",
   ) as HTMLImageElement;
+  const projectPreviewLink = document.querySelector(
+    "#project-preview-link",
+  ) as HTMLAnchorElement;
 
-  if (projectTapes?.length > 0 && projectPreview) {
+  if (projectTapes?.length > 0 && projectPreview && projectPreviewLink) {
+    // Set initial preview to the first project
+    const firstTape = projectTapes[0] as HTMLElement;
+    const initialPreviewSrc = firstTape.dataset.preview;
+    const initialLinkSrc = firstTape.dataset.link;
+
+    if (initialPreviewSrc) {
+      projectPreview.src = initialPreviewSrc;
+    }
+    if (initialLinkSrc) {
+      projectPreviewLink.href = initialLinkSrc;
+    }
+
     projectTapes.forEach((tape) => {
       tape.addEventListener("click", (e) => {
         const clickedTape = e.currentTarget as HTMLImageElement;
         const previewSrc = clickedTape.dataset.preview;
+        const linkSrc = clickedTape.dataset.link;
 
         console.log("clicked " + clickedTape);
 
         if (previewSrc) {
           projectPreview.src = previewSrc;
+        }
+        if (linkSrc) {
+          projectPreviewLink.href = linkSrc;
         }
       });
     });

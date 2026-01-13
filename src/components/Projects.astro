@@ -1,8 +1,12 @@
 ---
 import dbdVHS from "../assets/VHS-DBD.png";
 import twVHS from "../assets/VHS-TW.png";
+import wipVHS from "../assets/VHS-WIP.svg";
+import blogVHS from "../assets/VHS-BLOG.svg";
 import dbdVert from "../assets/VHS-DBD-V.png";
 import twVert from "../assets/VHS-TW-V.png";
+import wipVert from "../assets/VHS-WIP-V.svg";
+import blogVert from "../assets/VHS-BLOG-V.svg";
 
 const projects = [
     {
@@ -11,6 +15,7 @@ const projects = [
         image: dbdVHS,
         vertical: dbdVert,
         preview: "../src/assets/90s-preview.png",
+        link: "https://mrodriguez956.github.io/90s-Generator/",
     },
     {
         title: "TimeWizard",
@@ -18,19 +23,21 @@ const projects = [
         image: twVHS,
         vertical: twVert,
         preview: "../src/assets/TW-preview.png",
+        link: "https://mrodriguez956.github.io/Time-Wizard/",
     },
     {
         title: "The Blog",
         description: "Custom Wordpress Theme inspired by Shirtz.cool",
-        image: null,
-        vertical: null,
+        image: blogVHS,
+        vertical: blogVert,
         preview: "../src/assets/blog-preview.png",
+        link: "https://mrodriguez956.github.io/the-blog/",
     },
     {
         title: "WordPress Theme",
         description: "Custom Wordpress Theme inspired by Shirtz.cool",
-        image: null,
-        vertical: null,
+        image: wipVHS,
+        vertical: wipVert,
         preview: "https://placecats.com/millie_neo/300/200",
     },
 ];
@@ -45,14 +52,16 @@ const projects = [
                     src={project.image.src}
                     alt={project.title}
                     data-preview={project.preview}
+                    data-link={project.link}
                 />
             ) : (
                 <div
                     data-preview={project.preview}
+                    data-link={project.link}
                     class="tape flex items-center justify-center bg-gray-500 text-white text-lg text-center p-2 rounded-md"
                     style="width: 200px; height: 40px;"
                 >
-                    Coming Soon
+                    {project.title}
                 </div>
             ),
         )
@@ -68,6 +77,7 @@ const projects = [
                     src={project.vertical.src}
                     alt={project.title}
                     data-preview={project.preview}
+                    data-link={project.link}
                 />
             ) : (
                 <div
